@@ -20,13 +20,13 @@ const ProductSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", ProductSchema);
 
-app.post('/products', async (req, res) => {
+app.post('/', async (req, res) => {
     const product = new Product(req.body);
     await product.save();
     res.send(product);
 });
 
-app.get("/products", async (req, res) => {
+app.get("/", async (req, res) => {
     const products = await Product.find();
     res.json(products);
 });

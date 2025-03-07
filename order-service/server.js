@@ -19,7 +19,7 @@ const OrderSchema = new mongoose.Schema({
 
 const Order = mongoose.model("Order", OrderSchema);
 
-app.post("/order", async(req, res) => {
+app.post("/", async(req, res) => {
     const productResponse = await axios.get(`http://localhost:5000/products/${productId}`);
 
     if (!productResponse.data) return res.status(404).send("Product not found");
